@@ -1,43 +1,28 @@
-// Exemplo de como um modelo seria definido usando uma ORM (como o Sequelize)
+// backend/models/Medico.js
 
-module.exports = (sequelize, DataTypes) => {
-    const Medico = sequelize.define('Medico', {
-        id: {
-            type: DataTypes.UUID, // Tipo de dado
-            primaryKey: true,
-            allowNull: false
-        },
-        nome: {
-            type: DataTypes.STRING(255),
-            allowNull: false
-        },
-        email: {
-            type: DataTypes.STRING(255),
-            unique: true,
-            allowNull: false
-        },
-        senha_hash: {
-            type: DataTypes.STRING(255),
-            allowNull: false
-        },
-        crm: {
-            type: DataTypes.STRING(20),
-            unique: true,
-            allowNull: false
-        },
-        // ... (outros campos)
-        ativo: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true
-        }
-    }, {
-        tableName: 'medicos' // Nome real da tabela no banco
-    });
+const mongoose = require('mongoose');
 
-    // Definir relacionamento (se houver)
-    Medico.associate = (models) => {
-        Medico.hasMany(models.Carteirinha, { foreignKey: 'id_medico' });
-    };
+const MedicoSchema = new mongoose.Schema({
+    nome: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    // NOVO CAMPO PRINCIPAL PARA LOGIN
+    email: { 
+        type: String,
+        required: true,
+        unique: true, // Garante que apenas um médico use este email
+        trim: true
+    },
+    crm: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
+    },
+    // ... restante dos campos (estado_crm, senha, mfa_secret, etc.)
+    // ...
+});
 
-    return Medico;
-};
+module.exports = mongoose.model('Medico', MedicoSchema);

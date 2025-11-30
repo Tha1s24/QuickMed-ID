@@ -9,21 +9,23 @@
 
     <link rel="stylesheet" href="/frontend/src/assents/css/glabal.css">
     <link rel="stylesheet" href="/frontend/src/assents/css/auth.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/themes.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/font-size.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<div id="accessibility-bar" role="toolbar" aria-label="Ferramentas de Acessibilidade">
-    <button id="btn-increase-font" aria-label="Aumentar Fonte" title="Aumentar Fonte">A+</button>
-    <button id="btn-decrease-font" aria-label="Diminuir Fonte" title="Diminuir Fonte">A-</button>
-    <button id="btn-toggle-dark" aria-label="Alternar Modo Escuro" title="Alternar Modo Escuro"><i
-            class="fas fa-moon"></i></button>
-    <button id="btn-toggle-contrast" aria-label="Alternar Alto Contraste" title="Alternar Alto Contraste"><i
-            class="fas fa-eye"></i></button>
-    <button id="btn-toggle-libras" aria-label="Ativar Tradutor de Libras" title="Ativar Tradutor de Libras"><i
-            class="fas fa-sign-language"></i></button>
-</div>
 
 <body>
+    <div id="accessibility-bar" role="toolbar" aria-label="Ferramentas de Acessibilidade">
+        <button id="btn-increase-font" aria-label="Aumentar Fonte" title="Aumentar Fonte">A+</button>
+        <button id="btn-decrease-font" aria-label="Diminuir Fonte" title="Diminuir Fonte">A-</button>
+        <button id="btn-toggle-dark" aria-label="Alternar Modo Escuro" title="Alternar Modo Escuro"><i
+                class="fas fa-moon"></i></button>
+        <button id="btn-toggle-contrast" aria-label="Alternar Alto Contraste" title="Alternar Alto Contraste"><i
+                class="fas fa-eye"></i></button>
+        <button id="btn-toggle-libras" aria-label="Ativar Tradutor de Libras" title="Ativar Tradutor de Libras"><i
+                class="fas fa-sign-language"></i></button>
+    </div>
 
     <main class="auth-container">
         <div class="auth-card">
@@ -31,23 +33,16 @@
             <h2 class="auth-title">Acesso Exclusivo para Profissionais</h2>
             <p class="auth-subtitle">Utilize seu e-mail e senha cadastrados para entrar.</p>
 
-            <form id="loginForm">
+            <form id="login-form">
                 <div class="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" required placeholder="seu.crm@exemplo.com">
+                    <input type="email" id="email" class="form-control" required>
                 </div>
-
                 <div class="form-group">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" required placeholder="••••••••">
+                    <input type="password" id="senha" class="form-control" required>
                 </div>
-
-                <div class="form-actions">
-                    <a href="#" class="forgot-password"
-                        onclick="alert('Função de recuperação de senha será implementada na Fase 2.'); return false;">Esqueci
-                        minha senha</a>
-                    <button type="submit" class="btn btn-primary btn-full-width">Entrar</button>
-                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
             </form>
 
             <div class="divider">
@@ -71,13 +66,16 @@
                 Início</a>
         </div>
     </main>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-    <link rel="stylesheet" href="/frontend/src/assents/css/themes.css">
-    <link rel="stylesheet" href="/frontend/src/assents/css/font-size.css">
-    <script src="/frontend/src/js/accessibility.js"></script>
-</body>
+    
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/all-externo.js"></script>
 
+    <script src="/frontend/src/js/accessibility.js"></script>
+    <script src="/frontend/src/js/login.js"></script>
+</body>
 </html>

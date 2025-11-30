@@ -23,3 +23,12 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`🚀 Servidor QuickMed ID rodando na porta ${PORT}`);
 });
+
+// backend/server.js (Trecho)
+
+const pacienteRoutes = require('./routes/pacienteRoutes');
+// ... outras importações (medicoRoutes, publicRoutes)
+
+app.use('/api/paciente', pacienteRoutes); // Novo endpoint para o paciente
+// app.use('/api/medico', medicoRoutes);
+// app.use('/api/public', publicRoutes);
