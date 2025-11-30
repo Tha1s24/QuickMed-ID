@@ -1,0 +1,17 @@
+/* src/assets/css/font-size.css */
+
+/* Classe base (Default) */
+.font-normal {
+    font-size: 100%; /* Tamanho padrão do navegador (16px) */
+}
+
+/* Aumento Médio */
+.font-medium {
+    font-size: 115%; /* 15% maior que o padrão */
+}
+
+/* Aumento Grande */
+.font-large {
+    font-size: 130%; /* 30% maior que o padrão */
+}
+

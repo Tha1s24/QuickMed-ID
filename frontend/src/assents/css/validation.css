@@ -1,0 +1,38 @@
+/* frontend/src/assets/css/validation.css */
+
+/* Estilo do container de resultado */
+.validation-result {
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.95em;
+}
+
+/* Estilo para resultado Válido/Ativo */
+.valid { 
+    border: 2px solid #28A745; /* Verde */
+    background-color: #E6FFEC; 
+}
+
+/* Estilo para resultado Inválido/Expirado/Erro */
+.invalid { 
+    border: 2px solid #DC3545; /* Vermelho */
+    background-color: #FFEBEE; 
+}
+
+/* Cores dos títulos de status */
+.valid h3 { 
+    color: #28A745; 
+    margin-top: 0;
+}
+
+.invalid h3 { 
+    color: #DC3545; 
+    margin-top: 0;
+}
+
+/* Oculta o bloco de resultado por padrão */
+.hidden {
+    display: none;
+}

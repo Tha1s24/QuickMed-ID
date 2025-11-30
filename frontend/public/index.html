@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMed ID - Acesso Digital à Preferência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/src/assents/css/glabal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="/frontend/src/assets/css/themes.css">
+    <link rel="stylesheet" href="/frontend/src/assets/css/font-size.css">
+
+</head>
+<div id="accessibility-bar" role="toolbar" aria-label="Ferramentas de Acessibilidade">
+    <button id="btn-increase-font" aria-label="Aumentar Fonte" title="Aumentar Fonte">A+</button>
+    <button id="btn-decrease-font" aria-label="Diminuir Fonte" title="Diminuir Fonte">A-</button>
+    <button id="btn-toggle-dark" aria-label="Alternar Modo Escuro" title="Alternar Modo Escuro"><i
+            class="fas fa-moon"></i></button>
+    <button id="btn-toggle-contrast" aria-label="Alternar Alto Contraste" title="Alternar Alto Contraste"><i
+            class="fas fa-eye"></i></button>
+
+</div>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo">QuickMed ID <i class="fas fa-id-card-alt"></i></div>
+
+        <nav class="main-nav">
+            <a href="#about">Sobre</a>
+            <a href="#purpose">Benefícios</a>
+            <a href="#faq">FAQ</a>
+            <a href="/frontend/src/pages/validation.html" class="btn btn-validate">Validar Documento</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <a href="login.html" class="btn btn-link">Login</a>
+            <a href="register.html" class="btn btn-primary">Cadastre-se</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero-section">
+            <h1>Acesso à Preferência com **Credibilidade Digital**.</h1>
+            <p>Emissão segura e instantânea de documentos de prioridade para pacientes em tratamento, pós-cirúrgicos e
+                condições temporárias.</p>
+            <div class="hero-actions">
+                <a href="#about" class="btn btn-primary btn-large">Saiba Como Funciona <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-image-placeholder">[Imagem Ilustrativa: QR Code em um celular/Carteirinha Digital]</div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2 class="section-title">Por Que o QuickMed ID?</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-shield-alt icon-feature"></i>
+                    <h3>Zero Fraude</h3>
+                    <p>Documento emitido apenas por médicos credenciados e validado instantaneamente via QR Code.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-clock icon-feature"></i>
+                    <h3>Emissão em 1 Minuto</h3>
+                    <p>Reduzimos a burocracia do atestado em papel. O médico emite em segundos, focando no paciente.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hand-holding-medical icon-feature"></i>
+                    <h3>Foco na Temporariedade</h3>
+                    <p>Ideal para condições como pós-cirurgia e quimioterapia, com data de validade definida e
+                        rastreável.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="purpose" class="content-section light-bg">
+            <h2 class="section-title">Para Quem é a Carteirinha?</h2>
+            <p class="subtitle">Atendemos principalmente condições médicas não visíveis ou temporárias, que exigem
+                prioridade em filas e assentos.</p>
+            <ul class="benefit-list">
+                <li><i class="fas fa-check-circle"></i> **Pós-Cirurgia e Ortopedia:** Pacientes em recuperação com
+                    mobilidade reduzida.</li>
+                <li><i class="fas fa-check-circle"></i> **Oncologia em Tratamento:** Ciclos de
+                    quimioterapia/radioterapia que causam exaustão severa.</li>
+                <li><i class="fas fa-check-circle"></i> **Condições em Crise:** Surto de doenças autoimunes, trombose ou
+                    quadros de fraqueza intensa.</li>
+                <li><i class="fas fa-check-circle"></i> **Uso de Dispositivos Temporários:** Pacientes com ostomias
+                    temporárias ou dispositivos de auxílio.</li>
+            </ul>
+        </section>
+
+        <section id="faq" class="content-section">
+            <h2 class="section-title">Perguntas Frequentes (FAQ)</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Existe idade mínima ou máxima para ter a carteirinha? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Não há restrição de idade. O QuickMed ID é emitido com base na condição médica e na
+                            necessidade de prioridade definida pelo médico, independentemente da idade do paciente.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Quanto tempo dura a validade do QuickMed ID? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>A validade é determinada pelo médico no momento da emissão, baseada no tempo estimado de
+                            recuperação ou tratamento do paciente (Ex: 30, 60 ou 90 dias).</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Quais profissionais podem emitir o documento? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Apenas médicos e especialistas com CRM ativo e cadastrados na plataforma, garantindo a
+                            autenticidade e a rastreabilidade do documento.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Posso usar o QuickMed ID para justificar faltas no trabalho? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Não. O QuickMed ID é uma ferramenta de prioridade e não substitui o atestado médico formal
+                            para fins de comprovação de ponto ou licenças.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        O que devo fazer se o documento for rejeitado por um fiscal? <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Peça ao fiscal para escanear o QR Code no documento. Se o problema persistir, anote o local e
+                            use o e-mail de denúncia em nosso rodapé para reportar a ocorrência, citando o código de
+                            validação.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="partnerships" class="content-section">
+            <h2 class="section-title">Nossos Parceiros Piloto</h2>
+            <div class="partner-logos-modern">
+                <div class="logo-placeholder-modern">Hospital Modelo</div>
+                <div class="logo-placeholder-modern">Governo Municipal</div>
+                <div class="logo-placeholder-modern">Transportadora X</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content container">
+            <div class="footer-info">
+                <p>QuickMed ID &copy; 2025. Todos os direitos reservados.</p>
+                <p>Focado na LGPD e na privacidade do paciente.</p>
+            </div>
+            <div class="footer-denuncia">
+                <h4>Canal de Denúncia</h4>
+                <p>Reporte uso indevido ou falsificação de documentos:</p>
+                <a href="mailto:denuncia@quickmedid.com" class="link-denuncia">denuncia@quickmedid.com</a>
+            </div>
+        </div>
+    </footer>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+<script src="https://vlibras.gov.br/app/all-externo.js"></script>
+
+    <script src="/frontend/src/js/visitor.js"></script>
+    <script src="/frontend/src/js/accessibility.js"></script>
+</body>
+
+</html>

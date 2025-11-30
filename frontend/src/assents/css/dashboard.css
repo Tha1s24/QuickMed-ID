@@ -1,0 +1,228 @@
+/* frontend/src/assets/css/dashboard.css */
+
+/* Cabeçalho do Dashboard */
+.dashboard-header {
+    background-color: #1a2b4b; 
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px 30px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header .logo {
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#medicoNome {
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    color: #FFC107; 
+    background: transparent; 
+    border: 1px solid #FFC107;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-small:hover {
+    background-color: #FFC107;
+    color: #1a2b4b;
+}
+
+/* --- Layout de Duas Colunas (Grid) --- */
+.dashboard-grid {
+    display: grid;
+    /* Coluna do formulário (Emissão) é menor que a do histórico */
+    grid-template-columns: 1fr 2fr; 
+    gap: 30px; 
+    margin-top: 30px;
+}
+
+/* Seções e Cards */
+.card-section {
+    background: var(--background-color, #ffffff);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow, 0 4px 12px rgba(0, 0, 0, 0.05));
+    margin-bottom: 0; 
+    min-height: 100%; 
+}
+
+.section-title {
+    color: var(--primary-color, #007bff);
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: var(--secondary-color, #6c757d);
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+/* Formulário de Emissão (Campos em Coluna - Um por linha) */
+.form-emissao .form-group {
+    margin-bottom: 15px;
+}
+
+.form-emissao input, .form-emissao select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+.form-actions-bottom {
+    text-align: right;
+    margin-top: 20px;
+}
+
+/* Resultados e Compartilhamento */
+#resultadoEmissao {
+    text-align: center;
+    border: 2px solid #28A745;
+    grid-column: 1 / 2;
+}
+
+.hidden {
+    display: none;
+}
+
+.result-title {
+    color: #28A745; 
+    margin-bottom: 20px;
+}
+
+.qr-code-box {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+}
+
+.share-actions {
+    margin-top: 20px;
+}
+
+.share-actions button {
+    margin: 0 5px;
+    padding: 10px 15px;
+}
+
+/* --- Notificação de Validade --- */
+.notification-box {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid;
+    font-size: 0.9em;
+}
+.notification-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+.notification-box ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+.notification-warning {
+    background-color: #fff3cd;
+    border-left-color: #ffc107;
+    color: #856404;
+}
+.notification-error {
+    background-color: #f8d7da;
+    border-left-color: #dc3545;
+    color: #721c24;
+}
+
+/* --- Filtros do Histórico --- */
+.historico-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.historico-filters .filter-group {
+    width: 30%;
+    min-width: 150px;
+    margin-bottom: 0;
+}
+.historico-filters .search-group {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+.historico-filters input, .historico-filters select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Tabela de Histórico */
+.table-container {
+    overflow-x: auto; 
+    margin-top: 20px;
+}
+
+.data-table {
+    width: 100%;
+    min-width: 500px; 
+    border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #E9ECEF;
+    vertical-align: middle;
+    font-size: 0.9em;
+}
+
+.data-table th {
+    background-color: var(--light-bg, #f8f9fa);
+    font-weight: 600;
+    color: var(--secondary-color, #6c757d);
+}
+
+.status-ativo { color: #28A745; font-weight: 600; }
+.status-expirado { color: #DC3545; font-weight: 600; }
+
+/* Esconde labels que só servem para ARIA */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    #emissao-paciente, #resultadoEmissao, #historico {
+        grid-column: auto; 
+    }
+}

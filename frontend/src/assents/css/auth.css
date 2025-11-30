@@ -1,0 +1,149 @@
+/* frontend/src/assets/css/auth.css */
+
+/* Centraliza o contêiner de autenticação */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--light-bg); /* Fundo claro para contraste */
+}
+
+.auth-card {
+    background: var(--background-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Largura máxima para formulários */
+    text-align: center;
+}
+
+.auth-logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.auth-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.auth-subtitle {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+}
+
+/* Campos do Formulário */
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #CED4DA;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que padding não estoure a largura */
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Ações e Botões */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.forgot-password {
+    font-size: 0.9em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.btn-full-width {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+    color: #ADB5BD;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #E9ECEF;
+    z-index: 1;
+}
+
+.divider span {
+    background: var(--background-color);
+    padding: 0 10px;
+    position: relative;
+    z-index: 5;
+    font-size: 0.9em;
+}
+
+/* Login Social */
+.social-login button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: 500;
+    border: 1px solid #CED4DA;
+    background: white;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-login i {
+    margin-right: 10px;
+}
+
+.btn-google { color: #DC3545; }
+.btn-linkedin { color: #0077B5; }
+
+.auth-footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.auth-footer a, .back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9em;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMed ID - Cadastro Médico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/src/assents/css/glabal.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<div id="accessibility-bar" role="toolbar" aria-label="Ferramentas de Acessibilidade">
+    <button id="btn-increase-font" aria-label="Aumentar Fonte" title="Aumentar Fonte">A+</button>
+    <button id="btn-decrease-font" aria-label="Diminuir Fonte" title="Diminuir Fonte">A-</button>
+    <button id="btn-toggle-dark" aria-label="Alternar Modo Escuro" title="Alternar Modo Escuro"><i
+            class="fas fa-moon"></i></button>
+    <button id="btn-toggle-contrast" aria-label="Alternar Alto Contraste" title="Alternar Alto Contraste"><i
+            class="fas fa-eye"></i></button>
+    <button id="btn-toggle-libras" aria-label="Ativar Tradutor de Libras" title="Ativar Tradutor de Libras"><i
+            class="fas fa-sign-language"></i></button>
+</div>
+
+<body>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-logo"><i class="fas fa-id-card-alt"></i> QuickMed ID</h1>
+            <h2 class="auth-title">Cadastro de Novo Profissional</h2>
+            <p class="auth-subtitle">Preencha seus dados. Sua conta será ativada após a verificação.</p>
+
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Dr(a). [Seu Nome]">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail (Será seu usuário)</label>
+                    <input type="email" id="email" name="email" required placeholder="seu.crm@exemplo.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required placeholder="Crie uma senha forte">
+                </div>
+
+                <div class="form-group">
+                    <label for="crm">CRM / UF</label>
+                    <input type="text" id="crm" name="crm" required placeholder="Ex: 12345-ES">
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00">
+                </div>
+
+                <div class="form-group">
+                    <label for="especialidade">Especialidade Principal</label>
+                    <select id="especialidade" name="especialidade" required>
+                        <option value="">Selecione sua especialidade</option>
+                        <option value="Ortopedia">Ortopedia</option>
+                        <option value="Oncologia">Oncologia</option>
+                        <option value="Cirurgia Geral">Cirurgia Geral</option>
+                        <option value="Clinica Geral">Clínica Geral</option>
+                    </select>
+                </div>
+
+                <p class="terms-text">Ao clicar em Cadastrar, você aceita nossos Termos de Serviço e Política de
+                    Privacidade.</p>
+
+                <button type="submit" class="btn btn-primary btn-full-width">Cadastrar</button>
+            </form>
+
+            <p class="auth-footer">
+                Já tem conta? <a href="/frontend/public/login.html">Faça login.</a>
+            </p>
+            <a href="/frontend/public/index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar para o
+                Início</a>
+        </div>
+    </main>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <link rel="stylesheet" href="/frontend/src/assents/css/themes.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/font-size.css">
+    <script src="/frontend/src/js/accessibility.js"></script>
+</body>
+
+</html>

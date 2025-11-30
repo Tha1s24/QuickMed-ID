@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickMed ID - Dashboard Médico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/frontend/src/assents/css/glabal.css" />
+    <link rel="stylesheet" href="/frontend/src/assents/css/dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<div id="accessibility-bar" role="toolbar" aria-label="Ferramentas de Acessibilidade">
+    <button id="btn-increase-font" aria-label="Aumentar Fonte" title="Aumentar Fonte">
+        A+
+    </button>
+    <button id="btn-decrease-font" aria-label="Diminuir Fonte" title="Diminuir Fonte">
+        A-
+    </button>
+    <button id="btn-toggle-dark" aria-label="Alternar Modo Escuro" title="Alternar Modo Escuro">
+        <i class="fas fa-moon"></i>
+    </button>
+    <button id="btn-toggle-contrast" aria-label="Alternar Alto Contraste" title="Alternar Alto Contraste">
+        <i class="fas fa-eye"></i>
+    </button>
+    <button id="btn-toggle-libras" aria-label="Ativar Tradutor de Libras" title="Ativar Tradutor de Libras">
+        <i class="fas fa-sign-language"></i>
+    </button>
+</div>
+
+<body>
+    <header class="main-header dashboard-header">
+        <div class="logo">QuickMed ID</div>
+        <div class="user-info">
+            <span id="medicoNome">Olá, Dr(a). [Carregando...]</span>
+            <a href="/frontend/public/index.html" id="btnLogout" class="btn btn-link btn-small" role="button"
+                aria-label="Sair da plataforma">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </a>
+        </div>
+    </header>
+
+    <main class="container" role="main">
+        <div class="dashboard-grid">
+            <section id="emissao-paciente" class="card-section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-plus"></i> Emissão Rápida de Documento
+                </h2>
+                <p class="subtitle">
+                    Preencha os dados do paciente para gerar o QuickMed ID rastreável.
+                </p>
+
+                <form id="formEmissaoPaciente" class="form-emissao" aria-labelledby="emissao-paciente">
+                    <div class="form-group">
+                        <label for="pacienteNome">Nome Completo do Paciente</label>
+                        <input type="text" id="pacienteNome" name="pacienteNome" required placeholder="Nome completo" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pacienteCPF">CPF do Paciente</label>
+                        <input type="text" id="pacienteCPF" name="pacienteCPF" required placeholder="000.000.000-00" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivo">Motivo/Condição</label>
+                        <select id="motivo" name="motivo" required>
+                            <option value="">Selecione o grupo</option>
+                            <option value="Ortopedia/Mobilidade Temporária">
+                                Condições Ortopédicas e de Mobilidade Temporária
+                            </option>
+                            <option value="Pós-Tratamento/Procedimento">
+                                Pós-Tratamento Intensivo ou Procedimentos
+                            </option>
+                            <option value="Tratamento Ativo/Crise">
+                                Em Tratamento, Condições de Saúde em Crise
+                            </option>
+                            <option value="Dispositivo Temporário">
+                                Uso de Dispositivos Temporários
+                            </option>
+                            <option value="Debilitante Temporário">
+                                Condições temporárias debilitantes
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataValidade">Data Limite de Validade</label>
+                        <input type="date" id="dataValidade" name="dataValidade" required />
+                    </div>
+
+                    <div class="form-actions-bottom">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Emitir QuickMed ID
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="resultadoEmissao" class="card-section hidden">
+                <h3 class="result-title">
+                    <i class="fas fa-check-circle"></i> Documento Emitido com Sucesso!
+                </h3>
+                <div id="qrCodeContainer" class="qr-code-box">
+                    <p>Gerando QR Code...</p>
+                </div>
+
+                <div class="share-actions">
+                    <button id="btnCompartilharWhatsapp" class="btn btn-success" aria-label="Compartilhar via WhatsApp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </button>
+                    <button id="btnCompartilharEmail" class="btn btn-info" aria-label="Compartilhar via E-mail">
+                        <i class="fas fa-envelope"></i> E-mail
+                    </button>
+                    <button id="btnImprimir" class="btn btn-secondary" aria-label="Imprimir Documento">
+                        <i class="fas fa-print"></i> Imprimir
+                    </button>
+                </div>
+            </section>
+
+            <section id="historico" class="card-section full-span-on-mobile">
+                <h2 class="section-title">
+                    <i class="fas fa-history"></i> Histórico de Emissões
+                </h2>
+                <p class="subtitle">
+                    Consulte e atualize documentos emitidos. Clique em "Atualizar" para
+                    renovar a validade.
+                </p>
+
+                <div id="validade-notificacao" class="notification-box hidden" role="alert" aria-live="polite"></div>
+
+                <div class="historico-filters">
+                    <div class="form-group filter-group">
+                        <label for="filtroStatus" class="sr-only">Filtrar por Status</label>
+                        <select id="filtroStatus" aria-label="Filtrar por Status">
+                            <option value="todos">Todos os Status</option>
+                            <option value="ativa">Ativa</option>
+                            <option value="expirado">Expirado</option>
+                        </select>
+                    </div>
+                    <div class="form-group search-group">
+                        <label for="buscaPaciente" class="sr-only">Buscar Paciente</label>
+                        <input type="text" id="buscaPaciente" placeholder="Buscar por Nome ou CPF..."
+                            aria-label="Buscar paciente por nome ou CPF" />
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table" id="historicoTabela" role="table" aria-label="Histórico de Emissões">
+                        <thead>
+                            <tr>
+                                <th role="columnheader">Nome</th>
+                                <th role="columnheader">Motivo</th>
+                                <th role="columnheader">Validade</th>
+                                <th role="columnheader">Status</th>
+                                <th role="columnheader">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historicoCorpo">
+                            <tr>
+                                <td colspan="5" class="loading-message">
+                                    Carregando histórico...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script type="module" src="/frontend/src/js/api.js"></script>
+    <script type="module" src="/frontend/src/js/dashboard.js"></script>
+    <link rel="stylesheet" href="/frontend/src/assents/css/themes.css" />
+    <link rel="stylesheet" href="/frontend/src/assents/css/font-size.css" />
+    <script src="/frontend/src/js/accessibility.js"></script>
+</body>
+
+</html>

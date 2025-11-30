@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMed ID - Validação Pública</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/src/assents/css/glabal.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/auth.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/validation.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<div id="accessibility-bar" role="toolbar" aria-label="Ferramentas de Acessibilidade">
+    <button id="btn-increase-font" aria-label="Aumentar Fonte" title="Aumentar Fonte">A+</button>
+    <button id="btn-decrease-font" aria-label="Diminuir Fonte" title="Diminuir Fonte">A-</button>
+    <button id="btn-toggle-dark" aria-label="Alternar Modo Escuro" title="Alternar Modo Escuro"><i
+            class="fas fa-moon"></i></button>
+    <button id="btn-toggle-contrast" aria-label="Alternar Alto Contraste" title="Alternar Alto Contraste"><i
+            class="fas fa-eye"></i></button>
+    <button id="btn-toggle-libras" aria-label="Ativar Tradutor de Libras" title="Ativar Tradutor de Libras"><i
+            class="fas fa-sign-language"></i></button>
+</div>
+
+<body>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h1 class="auth-logo"><i class="fas fa-search-location"></i> Validação Rápida</h1>
+            <h2 class="auth-title">Verificar QuickMed ID</h2>
+            <p class="auth-subtitle">Digite o código ou escaneie o QR Code para checar a validade do documento.</p>
+
+            <form id="validationForm">
+                <div class="form-group">
+                    <label for="codigo">Código do QuickMed ID</label>
+                    <input type="text" id="codigo" name="codigo" required placeholder="Ex: XYZ789">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full-width">Validar Documento</button>
+            </form>
+
+            <div id="validationResult" class="validation-result hidden">
+            </div>
+
+            <a href="/frontend/public/index.html" class="back-link"><i class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </main>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script type="module" src="/frontend/src/js/api.js"></script>
+    <script type="module" src="/frontend/src/js/validation.js"></script>
+    <link rel="stylesheet" href="/frontend/src/assents/css/themes.css">
+    <link rel="stylesheet" href="/frontend/src/assents/css/font-size.css">
+    <script src="/frontend/src/js/accessibility.js"></script>
+</body>
+
+</html>
